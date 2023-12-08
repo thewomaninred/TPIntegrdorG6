@@ -1,2 +1,4 @@
-com\mycompany\prueba\JakartaRestConfiguration.class
-com\mycompany\prueba\resources\JakartaEE9Resource.class
+data\PelisDAO.class
+model\Pelicula.class
+data\Conexion.class
+controller\PeliculaServletController.class
