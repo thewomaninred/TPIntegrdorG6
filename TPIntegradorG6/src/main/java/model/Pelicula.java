@@ -5,11 +5,15 @@
 package model;
 
 import java.util.Date;
+import lombok.*;
 
 /**
  *
  * @author Vale
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Pelicula {
     private int idPelicula;
     private String Actores;
@@ -17,11 +21,23 @@ public class Pelicula {
     private String Director;
     private Date duracion;
     private String Genero;
-    private Byte Imagen;
+    private byte[] Imagen;
+    private String ImagenBase64;
     private String Sinopsis;
     private String Titulo;
 
-    public Pelicula(int idPelicula, String Actores, int Año, String Director, Date duracion, String Genero, Byte Imagen, String Sinopsis, String Titulo) {
+    public Pelicula(String Actores, int Año, String Director, Date duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo) {
+        this.Actores = Actores;
+        this.Año = Año;
+        this.Director = Director;
+        this.duracion = duracion;
+        this.Genero = Genero;
+        this.Imagen = Imagen;
+        this.Sinopsis = Sinopsis;
+        this.Titulo = Titulo;
+    }
+
+    public Pelicula(int idPelicula, String Actores, int Año, String Director, Date duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo) {
         this.idPelicula = idPelicula;
         this.Actores = Actores;
         this.Año = Año;
@@ -31,20 +47,6 @@ public class Pelicula {
         this.Imagen = Imagen;
         this.Sinopsis = Sinopsis;
         this.Titulo = Titulo;
-    }
-
-    public Pelicula(String Actores, int Año, String Director, Date duracion, String Genero, Byte Imagen, String Sinopsis, String Titulo) {
-        this.Actores = Actores;
-        this.Año = Año;
-        this.Director = Director;
-        this.duracion = duracion;
-        this.Genero = Genero;
-        this.Imagen = Imagen;
-        this.Sinopsis = Sinopsis;
-        this.Titulo = Titulo;
-    }
-
-    public Pelicula() {
     }
 
     
@@ -97,11 +99,11 @@ public class Pelicula {
         this.Genero = Genero;
     }
 
-    public Byte getImagen() {
+    public byte[] getImagen() {
         return Imagen;
     }
 
-    public void setImagen(Byte Imagen) {
+    public void setImagen(byte[] Imagen) {
         this.Imagen = Imagen;
     }
 

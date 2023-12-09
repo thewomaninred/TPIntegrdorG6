@@ -4,10 +4,34 @@
  */
 package controller;
 
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 /**
  *
  * @author Vale
  */
-public class PeliculaServletController {
+
+@WebServlet("/peliculas")
+public class PeliculaServletController extends HttpServlet{
+    
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res){
+        
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res){
+        
+    }
+    
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse res){
+        
+    }
+    
+    
     
 }
