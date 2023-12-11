@@ -42,9 +42,7 @@ public class PeliculaServletController extends HttpServlet {
                     String imagen64 = Base64.getEncoder().encodeToString(imagenBytes);
                     pelicula.setImagenBase64(imagen64);
                 }
-
                 mapper.writeValue(res.getWriter(), listaPeliculas);
-
             }
 
             default -> {
