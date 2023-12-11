@@ -26,6 +26,9 @@ public class Pelicula {
     private String Sinopsis;
     private String Titulo;
 
+    /**
+     * Constructor Sin Imagen ni ImagenBase64
+     */
     public Pelicula(int idPelicula, String Actores, int Año, String Director, Date duracion, String Genero, String Sinopsis, String Titulo) {
         this.idPelicula = idPelicula;
         this.Actores = Actores;
@@ -38,7 +41,9 @@ public class Pelicula {
     }
 
     
-    
+    /**
+     * Constructor sin idPeliculas
+     */
     public Pelicula(String Actores, int Año, String Director, Date duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo) {
         this.Actores = Actores;
         this.Año = Año;
@@ -50,6 +55,9 @@ public class Pelicula {
         this.Titulo = Titulo;
     }
 
+    /**
+     * Constructor sin ImagenBase64
+     */
     public Pelicula(int idPelicula, String Actores, int Año, String Director, Date duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo) {
         this.idPelicula = idPelicula;
         this.Actores = Actores;
