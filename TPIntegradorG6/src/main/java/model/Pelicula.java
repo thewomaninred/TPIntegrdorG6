@@ -26,6 +26,19 @@ public class Pelicula {
     private String Sinopsis;
     private String Titulo;
 
+    public Pelicula(int idPelicula, String Actores, int Año, String Director, Date duracion, String Genero, String Sinopsis, String Titulo) {
+        this.idPelicula = idPelicula;
+        this.Actores = Actores;
+        this.Año = Año;
+        this.Director = Director;
+        this.duracion = duracion;
+        this.Genero = Genero;
+        this.Sinopsis = Sinopsis;
+        this.Titulo = Titulo;
+    }
+
+    
+    
     public Pelicula(String Actores, int Año, String Director, Date duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo) {
         this.Actores = Actores;
         this.Año = Año;
@@ -105,6 +118,14 @@ public class Pelicula {
 
     public void setImagen(byte[] Imagen) {
         this.Imagen = Imagen;
+    }
+    
+    public String getImagenBase64() {
+        return ImagenBase64;
+    }
+
+    public void setImagen(String imagenBase64) {
+        this.ImagenBase64 = imagenBase64;
     }
 
     public String getSinopsis() {

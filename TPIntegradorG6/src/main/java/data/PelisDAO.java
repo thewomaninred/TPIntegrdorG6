@@ -32,7 +32,7 @@ public class PelisDAO {
     
     private static final String SQL_DELETE="DELETE FROM peliculas WHERE idPeliculas=?";
     
-    private static List<Pelicula> seleccionar(){
+    public static List<Pelicula> seleccionar(){
         Connection conn=null;
         PreparedStatement stmt=null;
         ResultSet rs=null;
@@ -42,8 +42,10 @@ public class PelisDAO {
             conn=getConexion();
             stmt= conn.prepareStatement(SQL_SELECT);
             rs=stmt.executeQuery();
+            System.out.println("Logitud del rs: "+rs);
             while (rs.next()) {                
                 int idPelicula=rs.getInt(1);
+//                int idPelicula=rs.getInt("idPelicula");
                 String titulo=rs.getString("Titulo");
                 String actores=rs.getString("Actores");
                 String director=rs.getString("Director");
@@ -53,8 +55,10 @@ public class PelisDAO {
                 int año=rs.getInt("Año");
                 Blob blob =rs.getBlob("Imagen");
                 byte[] imagenBytes=blob.getBytes(1,(int)blob.length());
+                System.out.println("Que trae desde BD: "+titulo);
                 
                 pelicula=new Pelicula(idPelicula, actores, año, director, duracion, genero, imagenBytes, sinopsis, titulo);
+//                   pelicula=new Pelicula(idPelicula, actores, año, director, duracion, genero, sinopsis, titulo);
                 
                 peliculas.add(pelicula);
             } 
