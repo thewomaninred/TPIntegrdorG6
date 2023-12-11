@@ -7,6 +7,7 @@ Diego Camaño
 Agustin Capua
 Valeria Cerroni
 Julieta Ruiz 
+Sergio Alepuz
 
 NetBeans 13
 Glassfish 7
