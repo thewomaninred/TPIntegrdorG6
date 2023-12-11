@@ -1,15 +1,83 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
+
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agregar Peliculas</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
     </head>
     <body>
-        <div>TODO write content</div>
+        <nav class="navbar bg-dark navbar-dark navbar-expand-lg sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="../media/codoacodo.png" class="img-fluid" alt="Logo CodoACodo" id="logoCAC"style="height : 3.5rem">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+
+
+                </div>
+            </div>
+
+        </nav>
+        <div class="bg-secondary py-3">
+            <h1 class="py-3 ps-4 text-ligth">Agregar de Películas</h1>
+        </div>
+        <div>
+            <form class="mb-4" id="addPeliculas-form" enctype="multipart/form-data">
+                <div class ="container">
+                    <div class="row">
+                        <div class="col-md-10 mx-auto">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col md-6">
+                                            <div class="form-floating my-3">
+                                                <input type="text" class="form-control" name="titulo" id="titulo" required/>
+                                                <label for="titulo">Título</label>
+                                            </div>
+                                            <div class="form-floating my-3">
+                                                <input type="text" class="form-control" name="director" id="director" required/>
+                                                <label for="titulo">Director</label>
+                                            </div>
+                                            <div class="form-floating my-3">
+                                                <input type="text" class="form-control" name="actores" id="actores" required/>
+                                                <label for="titulo">Actores</label>
+                                            </div>
+                                            <div class="form-floating my-3">
+                                                <input type="text" class="form-control" name="genero" id="genero" required/>
+                                                <label for="titulo">Genero</label>
+                                            </div>
+                                            <div class="form-floating my-3">
+                                                <input type="text" class="form-control" name="sinopsis" id="sinopsis" required/>
+                                                <label for="titulo">Sinopsis</label>
+                                            </div>
+                                            <div class="form-floating my-3">
+                                                <input type="number" class="form-control" name="duracion" id="duracion" required/>
+                                                <label for="titulo">Duracion</label>
+                                            </div>
+                                            <div class="form-floating my-3">
+                                                <input type="number" class="form-control" name="año" id="año" required/>
+                                                <label for="titulo">Año</label>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
 </html>
