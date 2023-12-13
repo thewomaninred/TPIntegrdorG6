@@ -91,7 +91,7 @@ public class PelisDAO {
             stmt.setString(5, pelicula.getSinopsis());
             stmt.setInt(6, pelicula.getDuracion());
             stmt.setInt(7, pelicula.getAño());
-            stmt.setBytes(8, pelicula.getImagen());
+//            stmt.setBytes(8, pelicula.getImagen());
             
             System.out.println("Sinopsis DAO: "+pelicula.getSinopsis());
             Blob imagenBlob=conn.createBlob();
