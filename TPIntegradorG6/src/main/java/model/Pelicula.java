@@ -19,7 +19,7 @@ public class Pelicula {
     private String Actores;
     private int Año;
     private String Director;
-    private Date duracion;
+    private int duracion;
     private String Genero;
     private byte[] Imagen;
     private String ImagenBase64;
@@ -29,7 +29,7 @@ public class Pelicula {
     /**
      * Constructor Sin Imagen ni ImagenBase64
      */
-    public Pelicula(int idPelicula, String Actores, int Año, String Director, Date duracion, String Genero, String Sinopsis, String Titulo) {
+    public Pelicula(int idPelicula, String Actores, int Año, String Director, int duracion, String Genero, String Sinopsis, String Titulo) {
         this.idPelicula = idPelicula;
         this.Actores = Actores;
         this.Año = Año;
@@ -44,7 +44,7 @@ public class Pelicula {
     /**
      * Constructor sin idPeliculas
      */
-    public Pelicula(String Actores, int Año, String Director, Date duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo) {
+    public Pelicula(String Actores, int Año, String Director, int duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo) {
         this.Actores = Actores;
         this.Año = Año;
         this.Director = Director;
@@ -58,7 +58,7 @@ public class Pelicula {
     /**
      * Constructor sin ImagenBase64
      */
-    public Pelicula(int idPelicula, String Actores, int Año, String Director, Date duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo) {
+    public Pelicula(int idPelicula, String Actores, int Año, String Director, int duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo) {
         this.idPelicula = idPelicula;
         this.Actores = Actores;
         this.Año = Año;
@@ -104,11 +104,11 @@ public class Pelicula {
         this.Director = Director;
     }
 
-    public Date getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(Date duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 

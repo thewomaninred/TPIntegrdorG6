@@ -9,6 +9,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 #logoCAC{
     height: 3.5rem;
-    
-    
+}
+
+
+.animate-hover-card{
+    transition:transform 0.2s ease-in;
+}
+.animate-hover-card:hover{
+    cursor:pointer;
+    transform:scale(1.03);
 }

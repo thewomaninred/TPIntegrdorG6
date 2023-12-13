@@ -1,3 +1,4 @@
+
  document.addEventListener("DOMContentLoaded", function () {
     const addFilmForm = document.getElementById("addPeliculas-form");
     const parrafoAlerta = document.createElement("P");
@@ -8,15 +9,15 @@
     const duracionElement = document.getElementById("duracion");
     const anyoElement = document.getElementById("anyo");
     const sinopsisElement = document.getElementById("sinopsis");
-    
+
     const imageElement = document.getElementById("imagen");
     const imagenPreview = document.getElementById("imagenPreview");
     const imagenContainer = document.getElementById("imagenContainer");
-    
-    
+
+
     addFilmForm.addEventListener("submit",function(e){
         e.preventDefault();
-        
+
         const datos= new FormData();
         datos.append("action","add");
         datos.append("titulo",tituloElement.value);
@@ -27,7 +28,7 @@
         datos.append("anyo",anyoElement.value);
         datos.append("sinopsis",sinopsisElement.value); 
         datos.append("imagen",imageElement.files[0]);
-        
+
         fetch("/app/peliculas", {
             method: "POST",
             body: datos
@@ -52,9 +53,9 @@
                 });
     });
 
-    
-    
-    
+
+
+
 imageElement.addEventListener("change", function () {
         const selectedImage = imageElement.files[0];
 

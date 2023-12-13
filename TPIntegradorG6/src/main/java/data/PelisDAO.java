@@ -51,7 +51,7 @@ public class PelisDAO {
                 String director=rs.getString("Director");
                 String genero=rs.getString("Genero");
                 String sinopsis=rs.getString("Sinopsis");
-                Date duracion=rs.getDate("Duracion");
+                int duracion=rs.getInt("Duracion");
                 int año=rs.getInt("Año");
                 Blob blob =rs.getBlob("Imagen");
                 byte[] imagenBytes=blob.getBytes(1,(int)blob.length());
@@ -89,7 +89,7 @@ public class PelisDAO {
             stmt.setString(3, pelicula.getDirector());
             stmt.setString(4, pelicula.getGenero());
             stmt.setString(5, pelicula.getSinopsis());
-            stmt.setDate(6, (java.sql.Date) pelicula.getDuracion());
+            stmt.setInt(6, pelicula.getDuracion());
             stmt.setInt(7, pelicula.getAño());
             stmt.setBytes(8, pelicula.getImagen());
             
@@ -131,7 +131,7 @@ public class PelisDAO {
                 String director=rs.getString("Director");
                 String genero=rs.getString("Genero");
                 String sinopsis=rs.getString("Sinopsis");
-                Date duracion=rs.getDate("Duracion");
+                int duracion=rs.getInt("Duracion");
                 int año=rs.getInt("Año");
                 Blob blob =rs.getBlob("Imagen");
                 byte[] imagenBytes=blob.getBytes(1,(int)blob.length());
