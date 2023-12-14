@@ -55,8 +55,33 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
    
+    //evento para mostrar el dettalle de las peliculas
+    bookCards.addEventListener("click",function(e){
+        const clickedCard=e.target.closest(".ident");
+        console.log(peliCard.getOwnPropertyNames());
+                if (!clickedCard) {
+                    return;
+                }
+                
+                //cosnt peliId=clickedCard.dataset.data-peli-id;
+                const peliId=clickedCard.dataset.id;
+                fetch(`/app/peliculas?action=getDetails&id=${peliId}`)
+                        .then(response=>response.json())
+                        .then(peliDetails=>{
+                            const queryParams= new URLSerchParams({
+                                id:peliDetails.idPelicula
+                            });
+                            window.location.href=`/app/pages/peliDetails.html?${queryParams.toString()}`;
+                        })
+                        .catch (error=>console.error("Error en la solicitud Get: ",error));
+    
+    });
+
+   
+            
+   
     // Evento que lanza la funcion de filtrar y agregar tarjetas de libros
-   const searchForm = document.querySelector("form[role='search']");
+    const searchForm = document.querySelector("form[role='search']");
     searchForm.addEventListener("submit",function(e){        
         e.preventDefault();
         const searchTerm = searchForm.querySelector("input[type='search']").value; 

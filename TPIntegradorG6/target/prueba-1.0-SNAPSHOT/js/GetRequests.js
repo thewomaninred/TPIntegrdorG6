@@ -28,6 +28,65 @@ document.addEventListener("DOMContentLoaded", function(){
                     
                 });
     }
+    
+
+    function filterPelis(palabra){
+        const pelisFiltrados = pelis.filter(pelis=>{
+            return pelis.titulo.toLowerCase().includes(palabra.toLowerCase());
+        });
+        peliCard.innerHTML = "";
+        
+        pelisFiltrados.forEach( peli=>{
+            const card = document.createElement("div");
+            card.className = "col-md-3 mb-4 ident";
+            card.setAttribute("data-peli-id",peli.idPelicula);
+            card.innerHTML = `
+            <div class="card h-100 animate-hover-card">
+                           <div class="card h-100 animate-hover-card bg-light"> 
+                            <img src="data:image/jpeg;base64,${peli.imagenBase64}" class="card-img-top h-75" alt="Imagen portada">
+                                <div class="card-body">
+                                   <h5 class="card-title"> ${peli.titulo}</h5>
+                                   <p class="card-text">${peli.sinopsis}</p>
+                                </div>
+                            </div>
+                            </div>
+                        `
+            peliCard.appendChild(card);
+        });
+    }
+   
+    //evento para mostrar el dettalle de las peliculas
+    bookCards.addEventListener("click",function(e){
+        const clickedCard=e.target.closest(".ident");
+        console.log(peliCard.getOwnPropertyNames());
+                if (!clickedCard) {
+                    return;
+                }
+                
+                //cosnt peliId=clickedCard.dataset.data-peli-id;
+                const peliId=clickedCard.dataset.id;
+                fetch(`/app/peliculas?action=getDetails&id=${peliId}`)
+                        .then(response=>response.json())
+                        .then(peliDetails=>{
+                            const queryParams= new URLSerchParams({
+                                id:peliDetails.idPelicula
+                            });
+                            window.location.href=`/app/pages/peliDetails.html?${queryParams.toString()}`;
+                        })
+                        .catch (error=>console.error("Error en la solicitud Get: ",error));
+    
+    });
+
+   
+            
+   
+    // Evento que lanza la funcion de filtrar y agregar tarjetas de libros
+    const searchForm = document.querySelector("form[role='search']");
+    searchForm.addEventListener("submit",function(e){        
+        e.preventDefault();
+        const searchTerm = searchForm.querySelector("input[type='search']").value; 
+        filterPelis(searchTerm)
+        });
     loadPelisList();
 });
     

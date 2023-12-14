@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -55,7 +52,13 @@ public class PeliculaServletController extends HttpServlet {
                 }
                 mapper.writeValue(res.getWriter(), listaPeliculas);
             }
-
+            
+            case "getDetails"->{
+                String peliId=req.getParameter("id");
+                Pelicula peliDetails=PelisDAO.seleccionarPorId(Integer.parseInt(peliId));
+                res.setContentType("application/json");
+                mapper.writeValue(res.getWriter(),peliDetails);
+            }
             default -> {
                 System.out.println("Parametro no válido.");
             }

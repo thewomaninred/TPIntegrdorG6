@@ -45,7 +45,6 @@ public class PelisDAO {
             System.out.println("Logitud del rs: "+rs);
             while (rs.next()) {                
                 int idPelicula=rs.getInt(1);
-//                int idPelicula=rs.getInt("idPelicula");
                 String titulo=rs.getString("Titulo");
                 String actores=rs.getString("Actores");
                 String director=rs.getString("Director");
