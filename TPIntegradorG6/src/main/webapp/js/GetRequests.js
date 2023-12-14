@@ -76,7 +76,15 @@ document.addEventListener("DOMContentLoaded", function(){
                         `
             peliCard.appendChild(card);
         });
-    }
+    } 
+    
+    // Evento que lanza la funcion de filtrar y agregar tarjetas de libros
+    const searchForm = document.querySelector("form[role='search']");
+    searchForm.addEventListener("submit",function(e){        
+        e.preventDefault();
+        const searchTerm = searchForm.querySelector("input[type='search']").value; 
+        filterPelis(searchTerm)
+        });
    
     //evento para mostrar el detalle de las peliculas
     peliCard.addEventListener("click",function(e){
@@ -100,13 +108,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
    
    
-    // Evento que lanza la funcion de filtrar y agregar tarjetas de libros
-    const searchForm = document.querySelector("form[role='search']");
-    searchForm.addEventListener("submit",function(e){        
-        e.preventDefault();
-        const searchTerm = searchForm.querySelector("input[type='search']").value; 
-        filterPelis(searchTerm)
-        });
+   
     loadPelisList();
 });
     
