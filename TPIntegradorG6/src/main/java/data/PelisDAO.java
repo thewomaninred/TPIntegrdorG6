@@ -41,10 +41,9 @@ public class PelisDAO {
         try{
             conn=getConexion();
             stmt= conn.prepareStatement(SQL_SELECT);
-            rs=stmt.executeQuery();
-            System.out.println("Logitud del rs: "+rs);
+            rs=stmt.executeQuery();;
             while (rs.next()) {                
-                int idPelicula=rs.getInt(1);
+                int idPeliculas=rs.getInt(1);
                 String titulo=rs.getString("Titulo");
                 String actores=rs.getString("Actores");
                 String director=rs.getString("Director");
@@ -56,7 +55,7 @@ public class PelisDAO {
                 byte[] imagenBytes=blob.getBytes(1,(int)blob.length());
                 System.out.println("Que trae desde BD: "+titulo);
                 
-                pelicula=new Pelicula(idPelicula, actores, año, director, duracion, genero, imagenBytes, sinopsis, titulo);
+                pelicula=new Pelicula(idPeliculas, actores, año, director, duracion, genero, imagenBytes, sinopsis, titulo);
 //                   pelicula=new Pelicula(idPelicula, actores, año, director, duracion, genero, sinopsis, titulo);
                 
                 peliculas.add(pelicula);
@@ -124,7 +123,7 @@ public class PelisDAO {
             rs=stmt.executeQuery();
             
             while (rs.next()) {                
-                int idPelicula=rs.getInt("idPelicula");
+                int idPeliculas=rs.getInt("idPeliculas");
                 String titulo=rs.getString("Titulo");
                 String actores=rs.getString("Actores");
                 String director=rs.getString("Director");
@@ -135,7 +134,7 @@ public class PelisDAO {
                 Blob blob =rs.getBlob("Imagen");
                 byte[] imagenBytes=blob.getBytes(1,(int)blob.length());
                 
-                pelicula=new Pelicula(idPelicula, actores, año, director, duracion, genero, imagenBytes, sinopsis, titulo);
+                pelicula=new Pelicula(idPeliculas, actores, año, director, duracion, genero, imagenBytes, sinopsis, titulo);
             }
         } catch (Exception e) {
             e.printStackTrace(System.out);
