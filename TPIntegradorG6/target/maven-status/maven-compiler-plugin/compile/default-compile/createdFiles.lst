@@ -1,4 +1,5 @@
 data\PelisDAO.class
 model\Pelicula.class
 data\Conexion.class
+.netbeans_automatic_build
 controller\PeliculaServletController.class

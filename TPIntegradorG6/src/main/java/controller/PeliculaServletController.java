@@ -54,7 +54,7 @@ public class PeliculaServletController extends HttpServlet {
             }
             
             case "getDetails"->{
-                String peliId=req.getParameter("idPeliculas");
+                String peliId=req.getParameter("id");
                 System.out.println("Id de pelicula que  llega: "+peliId);
                 Pelicula peliDetails=PelisDAO.seleccionarPorId(Integer.parseInt(peliId));
                 res.setContentType("application/json");
