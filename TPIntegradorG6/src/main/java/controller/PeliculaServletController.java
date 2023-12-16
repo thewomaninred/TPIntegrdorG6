@@ -55,7 +55,7 @@ public class PeliculaServletController extends HttpServlet {
             
             case "getDetails"->{
                 String peliId=req.getParameter("id");
-                System.out.println("Id de pelicula que  llega: "+peliId);
+//                System.out.println("Id de pelicula que  llega: "+peliId);
                 Pelicula peliDetails=PelisDAO.seleccionarPorId(Integer.parseInt(peliId));
                 res.setContentType("application/json");
                 mapper.writeValue(res.getWriter(),peliDetails);
@@ -126,7 +126,7 @@ public class PeliculaServletController extends HttpServlet {
                     
                     //int idPelicula, String Actores, int Año, String Director, int duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo
                     Pelicula pelicula = new Pelicula(id, actores, anyo, director, duracion, genero, imageBytes, sinopsis, titulo);
-
+//                    System.out.println("Controller "+ pelicula.getAño());    
                     PelisDAO.actualizar(pelicula);
 
                     res.setContentType("application/json");

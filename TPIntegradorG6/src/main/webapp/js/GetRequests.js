@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
         fetch("/app/peliculas?action=getAll")
             .then(response=> response.json())
                 .then(data =>{
+                    console.log(data);
                     data.forEach(peli =>{
                         pelis.push(peli);
                         peliCard.innerHTML += `
@@ -18,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function(){
                                 <div class="card h-100 animate-hover-card">
                                     <img src="data:image/jpeg;base64,${peli.imagenBase64}" class="card-img-top h-75" alt="Imagen Portada de Libro">
                                     <div class="card-body">
-                                        <h5 class="card-tittle">${peli.titulo}</h5>
+                                        
+                                        <h5 class="card-tittle">${peli.titulo} (${peli.anyo})</h5>
                                         <p class="card-text">${peli.sinopsis}</p>
                                     </div>
                                 </div>
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){
                            <div class="card h-100 animate-hover-card bg-light"> 
                             <img src="data:image/jpeg;base64,${peli.imagenBase64}" class="card-img-top h-75" alt="Imagen portada">
                                 <div class="card-body">
-                                   <h5 class="card-title"> ${peli.titulo}</h5>
+                                   <h5 class="card-title"> ${peli.titulo} (${peli.anyo})</h5>
                                    <p class="card-text">${peli.sinopsis}</p>
                                 </div>
                             </div>

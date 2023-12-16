@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnGuardarElement = document.getElementById("btnGuardar");
     const btnContainerElement = document.getElementById("btnContainer");
 
-    let objetoPelicula = {
+    let objetoPeli = {
         id: 0,
         titulo: "",
         actores: "",
@@ -24,14 +24,16 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     function loadPeli() {
-        //`/app/peliculas?action=getDetails&id=${peliId}`
+
         fetch(`/app/peliculas?action=getById&id=${peliDetailId.id}`)
                 .then(response => response.json())
                 .then(data => {
+                    
+                    console.log(data);
                     peliDetailsContainer.innerHTML += `
                         <div class="col-md-6 text-center">
                             <div class="clearfix">
-                                <img src="data:image/jpeg;base64,${data.imagenBase64}" class="my-4" style="width: 75%" alt="imagen de libro"/>
+                                <img src="data:image/jpeg;base64,${data.imagenBase64}" class="my-4" style="width: 75%" alt="Poster Promocional"/>
                             </div>
                         </div>
                         <div class="card-body col-md-6">
@@ -110,18 +112,19 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <label  for="genero">Género</label>
                             </div>
 
-                            <div class="form-floating">
-                                <input type}="number" class="form-control" placeholder="duración" name="duracion" id="duracion">${objetoduracion.sinopsis}</textarea>
+                            <div class="form-floating my-3">
+                                <input type="number" class="form-control" name="duracion" id="duracion" placeholder="duración"   value="${objetoPeli.duracion}" required/>
                                 <label for="duracion">Duración</label>
                             </div>
 
                             <div class="form-floating my-3">
-                                <input type="number" class="form-control" name="anyo" id="anyo" placeholder="año" value="${objetoPeli.anyo}" required/>
+                                <input type="number" class="form-control" name="anyo" id="anyo" placeholder="anyo" value="${objetoPeli.anyo}" required/>
                                 <label  for="anyo">Año</label>
                             </div>
+            
                             <div class="form-floating">
-                                <textarea class="form-control" name="sinopsis" id="sinopsis" placeholder="Escriba la sinopsis aqui" value="${objetoPeli.sinopsis}" required/>
-                                <label  for="sinopsis">Precio</label>
+                                <textarea class="form-control" placeholder="Escriba la sinopsis aqui" name="sinopsis" id="sinopsis">${objetoPeli.sinopsis}</textarea>
+                                <label for="sinopsis">Sinopsis</label>
                             </div>
                         </div>
                     </div>
@@ -144,6 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
         formulario.append("anyo", document.getElementById("anyo").value);
         formulario.append("sinopsis", document.getElementById("sinopsis").value);
         formulario.append("imagen", objetoPeli.imagen);
+        
+//        console.log("datos del formulario "+formulario);
+        
         
         fetch(`/app/peliculas`,{
            method:"POST",
