@@ -60,6 +60,21 @@ public class PeliculaServletController extends HttpServlet {
                 res.setContentType("application/json");
                 mapper.writeValue(res.getWriter(),peliDetails);
             }
+            
+            case "getById"->{
+                
+                int id = Integer.parseInt(req.getParameter("id"));
+                
+                res.setContentType("application/json");
+                Pelicula peliDetails = PelisDAO.seleccionarPorId(id);
+                
+                byte[] imagenBytes = peliDetails.getImagen();
+                String imagenBase64 = Base64.getEncoder().encodeToString(imagenBytes);
+                peliDetails.setImagenBase64(imagenBase64);
+                
+                mapper.writeValue(res.getWriter(), peliDetails);
+            }
+            
             default -> {
                 System.out.println("Parametro no válido.");
             }
@@ -91,7 +106,46 @@ public class PeliculaServletController extends HttpServlet {
                 response.put("message","¡Guadado exitosamente!");
                 mapper.writeValue(res.getWriter(), response);
                         
-                        }
+            }
+            
+            case "update"->{
+                
+                try{
+                    int id= Integer.parseInt(req.getParameter("id"));
+                    String titulo = req.getParameter("titulo");
+                    String director = req.getParameter("director");
+                    String actores = req.getParameter("actores");
+                    String genero = req.getParameter("genero");
+                    int duracion = Integer.parseInt(req.getParameter("duracion"));
+                    int anyo = Integer.parseInt(req.getParameter("anyo"));
+                    String sinopsis = req.getParameter("sinopsis");
+                    
+
+                    Part filePart = req.getPart("imagen");
+                    byte[] imageBytes = IOUtils.toByteArray(filePart.getInputStream());
+                    
+                    //int idPelicula, String Actores, int Año, String Director, int duracion, String Genero, byte[] Imagen, String Sinopsis, String Titulo
+                    Pelicula pelicula = new Pelicula(id, actores, anyo, director, duracion, genero, imageBytes, sinopsis, titulo);
+
+                    PelisDAO.actualizar(pelicula);
+
+                    res.setContentType("application/json");
+                    res.setCharacterEncoding("UTF-8");
+
+                    Map <String, String> response = new HashMap<>();
+                    response.put("success", "true");
+                    mapper.writeValue(res.getWriter(), response);
+                }catch(Exception e){
+                    res.setContentType("application/json");
+                    res.setCharacterEncoding("UTF-8");
+                    
+                    Map <String, String> responseFail = new HashMap<>();
+                    responseFail.put("success", "false");
+                    responseFail.put("message", e.getMessage());
+                    mapper.writeValue(res.getWriter(), responseFail);
+                }
+                
+            }
                 
                 
              default -> {
@@ -103,7 +157,31 @@ public class PeliculaServletController extends HttpServlet {
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse res) {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        String route = req.getParameter("action");
+        System.out.println("route = " + route);
+        
+        switch(route){
+            case "delete"->{
+                try{
+                    int id = Integer.parseInt(req.getParameter("id"));
+                    System.out.println("id:" + id);
+                    
+                    int result = PelisDAO.eliminar(id);
+                    res.setContentType("application/json");
+                    res.setCharacterEncoding("UTF-8");
+                    res.getWriter().write("{\"success\": true}");
+                }catch(Exception e){
+                    res.setContentType("application/json");
+                    res.setCharacterEncoding("UTF-8");
+                    res.getWriter().write("{\"success\": false, \"message\": \"Error al borrar el registro.\"}");
+                }
+            }
+            
+            default->{
+                System.out.println("error en parametro.");
+            }
+        }
 
     }
 

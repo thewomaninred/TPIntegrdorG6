@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(){
                                 <div class="card h-100 animate-hover-card">
                                     <img src="data:image/jpeg;base64,${peli.imagenBase64}" class="card-img-top h-75" alt="Imagen Portada de Libro">
                                     <div class="card-body">
-                                        <h5 class="card-tittle">${peli.titulo} ${peli.idPelicula}</h5>
+                                        <h5 class="card-tittle">${peli.titulo}</h5>
                                         <p class="card-text">${peli.sinopsis}</p>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function(){
                        id : peliDetails.idPelicula
                     });
                     
-                    window.location.href = `/app/pages/peliDetails.html?${queryParams.toString()}`;
+                    window.location.href = `/app/pages/Form_Detalles_Pelicula.html?${queryParams.toString()}`;
                 })
                 .catch(error => console.error("Error en la solicitud GET:", error));
     });

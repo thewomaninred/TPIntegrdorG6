@@ -133,6 +133,7 @@ public class PelisDAO {
                 int año=rs.getInt("Año");
                 Blob blob =rs.getBlob("Imagen");
                 byte[] imagenBytes=blob.getBytes(1,(int)blob.length());
+                System.out.println("Pretende modificar: "+titulo);
                 
                 pelicula=new Pelicula(idPeliculas, actores, año, director, duracion, genero, imagenBytes, sinopsis, titulo);
             }
@@ -174,6 +175,40 @@ public class PelisDAO {
         }
         return registros;
                
+    }
+
+    public static int actualizar(Pelicula pelicula) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int registros = 0;
+        try {
+            conn = getConexion();
+            
+            //Titulo=?, Actores=?, Director=?, Genero=?, Sinopsis=?, Duracion=?, Año=?
+            stmt = conn.prepareStatement(SQL_UPDATE);
+            stmt.setString(1, pelicula.getTitulo());
+            stmt.setString(2, pelicula.getActores());
+            stmt.setString(3, pelicula.getDirector());
+            stmt.setString(4, pelicula.getGenero());
+            stmt.setString(5, pelicula.getSinopsis());
+            stmt.setInt(6,pelicula.getDuracion());
+            stmt.setInt(7, pelicula.getAño());
+            stmt.setInt(8, pelicula.getIdPelicula());
+            
+            registros = stmt.executeUpdate();
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        }
+        finally{
+            try {
+                close(stmt);
+                close(conn);
+            } catch (SQLException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
+        return registros;
     }
     
     }
