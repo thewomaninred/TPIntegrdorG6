@@ -8,6 +8,7 @@ Agustin Capua
 Valeria Cerroni
 Julieta Ruiz 
 Sergio Alepuz
+Jose Sanchez Rivas
 
 NetBeans 13
 Glassfish 7
