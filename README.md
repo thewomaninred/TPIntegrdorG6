@@ -12,4 +12,5 @@ Jose Sanchez Rivas
 
 NetBeans 13
 Glassfish 7
-MySQL Workbench 8.0 mysql conector j 8.0.31
+Jakarta 9
+MySQL Workbench 8.0 MySQL conector j 8.0.31 
