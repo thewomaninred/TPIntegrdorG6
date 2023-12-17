@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         peliCard.innerHTML += `
                             <div class="col-md-3 mb-4 ident" data-peli-id="${peli.idPelicula}">
                                 <div class="card h-100 animate-hover-card">
-                                    <img src="data:image/jpeg;base64,${peli.imagenBase64}" class="card-img-top h-75" alt="Imagen Portada de Libro">
+                                    <img src="data:image/jpeg;base64,${peli.imagenBase64}" class="card-img-top h-50" alt="Imagen Portada de Libro">
                                     <div class="card-body">
                                         
                                         <h5 class="card-tittle">${peli.titulo} (${peli.anyo})</h5>
