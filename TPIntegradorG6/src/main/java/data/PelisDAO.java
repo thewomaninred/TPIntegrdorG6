@@ -22,7 +22,7 @@ import model.Pelicula;
  * @author Vale
  */
 public class PelisDAO {
-    private static final String SQL_SELECT="SELECT * FROM peliculas";
+    private static final String SQL_SELECT="SELECT * FROM peliculas ORDER BY Titulo ASC";
     
     private static final String SQL_SELECT_BY_ID="SELECT * FROM peliculas WHERE idPeliculas= ?";
     
@@ -93,7 +93,6 @@ public class PelisDAO {
             stmt.setInt(7, pelicula.getAnyo());
 //            stmt.setBytes(8, pelicula.getImagen());
             
-            System.out.println("Sinopsis DAO: "+pelicula.getSinopsis());
             Blob imagenBlob=conn.createBlob();
             imagenBlob.setBytes(1, pelicula.getImagen());
             stmt.setBlob(8, imagenBlob);

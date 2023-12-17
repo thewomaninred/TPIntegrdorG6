@@ -9,9 +9,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles/styles.css">
     </head>
     <body>
-        <nav class="navbar bg-dark navbar-dark navbar-expand-lg sticky-top">
+        <nav class="navbar bg-dark navbar-dark navbar-expand-lg sticky-top" >
             <div class="container-fluid">
                 <a class="navbar-brand" href="../index.html">
                     <img src="../media/codoacodo.png" class="img-fluid" alt="Logo CodoACodo" id="logoCAC" style="height : 3.5rem"/>
@@ -27,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </div>
         </nav>
         
-         <div class="bg-black py-3">
+         <div class="bg-success py-3">
             <h1 class="py-3 ps-4 text-light">Administrar Película</h1>
         </div>
          <main class="container my-3">
@@ -43,9 +44,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
                         </div>
                         <div class="d-flex justify-content-end align-item-end mb-3" id="btnContainer">
-                            <button type="button" class="btn btn-secondary" id="btnModificar"> Modificar </button>
+                            <button type="button" class="btn btn-success" id="btnModificar"> Modificar </button>
                             <button type="button" class="btn btn-danger mx-3" id="btnEliminar"> Eliminar </button>
-                            <button class="btn btn-primary mt-3 me-3 d-none" form="updatePeliForm" type="submit" id="btnGuardar"> Guardar Cambios </button>
+                            <button class="btn btn-warning mt-3 me-3 d-none" form="updatePeliForm" type="submit" id="btnGuardar"> Guardar Cambios </button>
                         </div>
                     </div>
                 </div>
