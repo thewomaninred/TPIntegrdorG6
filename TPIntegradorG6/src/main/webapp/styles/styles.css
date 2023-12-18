@@ -23,3 +23,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .body {
     font-family: 'Franklin Gothic';
 }
+.card-img-top{
+    height: 450px!important;
+}
+.card-img-top:hover{
+    transition:transform 0.5s ease-in;
+    transform:rotate(360deg);
+}
